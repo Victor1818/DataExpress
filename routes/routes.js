@@ -36,7 +36,7 @@ var personSchema = mongoose.Schema({
       res.render('index', {
         title: 'Home',
         people: person,
-        session: req.session.name
+        session: req.cookies.userID
       });
     });
   };
@@ -44,7 +44,7 @@ var personSchema = mongoose.Schema({
   exports.register = function (req, res) {
     res.render('register', {
         title: 'Register an Account',
-        session: req.session.name
+        session: req.cookies.userID
     });
   };
   
@@ -69,6 +69,7 @@ var personSchema = mongoose.Schema({
         console.log(req.sessionID);
       });
 
+      res.cookie('userID', person.id);
     }
     res.redirect('/');
   };
@@ -79,7 +80,7 @@ var personSchema = mongoose.Schema({
       res.render('edit', {
         title: 'Update Account',
         person: person,
-        session: req.session.name
+        session: req.cookies.userID
       });
     });
   };
@@ -112,7 +113,7 @@ var personSchema = mongoose.Schema({
       if (err) return console.error(err);
       res.render('login', {
         title: 'Login',
-        session: req.session.name
+        session: req.cookies.userID
       });
     });
   };
@@ -134,6 +135,8 @@ var personSchema = mongoose.Schema({
         req.session.name = person.id;
         console.log(req.sessionID);
       });
+
+      res.cookie('userID', person.id);
     });
 
     res.redirect('/');
