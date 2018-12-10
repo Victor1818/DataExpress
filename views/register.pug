@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  form(id='form', method='post', action='/register')
+    label(for='username') Username: 
+    input(type='text', name='username')
+    br
+    label(for='age') Age: 
+    input(type='text', name='age')
+    br
+    label(for='password') Password: 
+    input(type='password', name='password')
+    br
+    label(for='email') Email: 
+    input(type='text', name='email')
+    br
+    label(for='RPS') 1.	Rock, Paper, or Scissors: 
+    select(name="RPS")
+      option(value="Rock") Rock
+      option(value="Paper") Paper
+      option(value="Scissors") Scissors
+    br
+    label(for='RSA') 2. Religious, Spiritual, or Atheist:  
+    select(name="RSA")
+      option(value="Religious") Religious
+      option(value="Spiritual") Spiritual
+      option(value="Atheist") Atheist
+    br
+    label(for='NMS') 3.	Nintendo, Microsoft, or Sony:  
+    select(name="NMS")
+      option(value="Nintendo") Nintendo
+      option(value="Microsoft") Microsoft
+      option(value="Sony") Sony
+    br
+    input(type='submit', value='Register')
+
+  div Already have an account?
+    a(href="/login/") Click Here!

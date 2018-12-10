@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  form(id='form', method='post', action='/login')
+    label(for='username') Username: 
+    input(type='text', name='username')
+    br
+    label(for='password') Password: 
+    input(type='password', name='password')
+    br
+    input(type='submit', value='Register')
+
+  div Don't have an account?
+    a(href="/register/") Click Here!
