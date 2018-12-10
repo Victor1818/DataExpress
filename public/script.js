@@ -8,6 +8,24 @@ var canvas3 = document.getElementById('graph3');
 var ctx3 = canvas3.getContext('2d');
 var percent = 20;
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+document.getElementById("date").innerHTML = 'date: ' + getCookie('date');
+
 ctx1.strokeStyle= 'rgb(100, 200, 100)';
 ctx1.moveTo(0, 20);
 ctx1.lineTo(320, 20);

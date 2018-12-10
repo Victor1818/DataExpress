@@ -1,7 +1,7 @@
 var bcrypt = require('bcrypt-nodejs');
 var myHash;
 var email_patt = /\w+@\w{2,}\.\w{2,}/;
-
+var date = new Date().toUTCString();
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
@@ -31,6 +31,7 @@ var personSchema = mongoose.Schema({
   }
 
   exports.index = function (req, res) {
+    res.cookie('date', date);
     Person.find(function (err, person) {
       if (err) return console.error(err);
       res.render('index', {
@@ -110,9 +111,12 @@ var personSchema = mongoose.Schema({
 
   exports.login = function (req, res) {
     Person.findById(req.params.id, function (err, person) {
+      //res.cookie('cookievar', person.username);
       if (err) return console.error(err);
       res.render('login', {
         title: 'Login',
+        session: req.session.name
+      
         session: req.cookies.userID
       });
     });

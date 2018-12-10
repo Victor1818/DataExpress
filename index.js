@@ -6,6 +6,10 @@ var expressSession = require('express-session');
 var route = require('./routes/routes.js');
 var bodyParser = require('body-parser');
 
+//store
+
+
+//get.cookie
 
 var app = express();
 
