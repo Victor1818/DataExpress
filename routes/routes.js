@@ -135,3 +135,4 @@ var personSchema = mongoose.Schema({
       if (err) return console.error(err);
       res.redirect('/');
     });
+  };
