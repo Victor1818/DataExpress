@@ -35,14 +35,16 @@ var personSchema = mongoose.Schema({
       if (err) return console.error(err);
       res.render('index', {
         title: 'Home',
-        people: person
+        people: person,
+        session: req.cookies.userID
       });
     });
   };
 
   exports.register = function (req, res) {
     res.render('register', {
-        title: 'Register an Account'
+        title: 'Register an Account',
+        session: req.cookies.userID
     });
   };
   
@@ -77,7 +79,8 @@ var personSchema = mongoose.Schema({
       if (err) return console.error(err);
       res.render('edit', {
         title: 'Update Account',
-        person: person
+        person: person,
+        session: req.cookies.userID
       });
     });
   };
@@ -109,7 +112,8 @@ var personSchema = mongoose.Schema({
     Person.findById(req.params.id, function (err, person) {
       if (err) return console.error(err);
       res.render('login', {
-        title: 'Login'
+        title: 'Login',
+        session: req.cookies.userID
       });
     });
   };
