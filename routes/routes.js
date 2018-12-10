@@ -56,7 +56,10 @@ var personSchema = mongoose.Schema({
         username: req.body.username,
         age: req.body.age,
         password: myHash,
-        email: req.body.email
+        email: req.body.email,
+        RPS: req.body.RPS,
+        RSA: req.body.RSA,
+        NMS: req.body.NMS
       });
       person.save(function (err, person) {
         if (err) return console.error(err);
@@ -91,6 +94,9 @@ var personSchema = mongoose.Schema({
         person.age = req.body.age;
         person.password = myHash;
         person.email = req.body.email;
+        person.RPS = req.body.RPS;
+        person.RSA = req.body.RSA;
+        person.NMS = req.body.NMS;
       }
       person.save(function (err, person) {
         if (err) return console.error(err);
