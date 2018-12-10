@@ -1,4 +1,25 @@
 extends layout
 
 block content
-    div *Insert Graph Here*
+    h4 Stats 
+    canvas(id='graph1' width='320' height='320')
+    script.
+        var data = [#{data}]
+    script(src='script.js')
+    div(id='questionStats1')
+        p Question 1
+
+    canvas(id='graph2' width='320' height='320')
+    script.
+        var data = [#{data}]
+    script(src='script.js')
+    div(id='questionStats2')
+        p Question 2
+    
+    canvas(id='graph3' width='320' height='320')
+    script.
+        var data = [#{data}]
+    script(src='script.js')
+    div(id='questionStats3')
+        p Question 3
+
