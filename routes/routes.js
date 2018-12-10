@@ -16,7 +16,10 @@ var personSchema = mongoose.Schema({
     username: String,
     age: String,
     password: String,
-    email: String
+    email: String,
+    RPS: String,
+    RSA: String,
+    NMS: String
   });
 
   var Person = mongoose.model('People_Collection', personSchema);
