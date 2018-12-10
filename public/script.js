@@ -6,7 +6,7 @@ var canvas2 = document.getElementById('graph2');
 var ctx2 = canvas2.getContext('2d');
 var canvas3 = document.getElementById('graph3');
 var ctx3 = canvas3.getContext('2d');
-var percent = ;
+var percent = 0;
 
 ctx1.strokeStyle= 'rgb(100, 200, 100)';
 ctx1.moveTo(0, 20);
