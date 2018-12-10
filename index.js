@@ -22,6 +22,6 @@ var urlencodedParser = bodyParser.urlencoded({
   extended: true
 })
 
-
+app.get('/', route.index);
 
 app.listen(3000);
