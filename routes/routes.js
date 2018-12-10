@@ -35,16 +35,14 @@ var personSchema = mongoose.Schema({
       if (err) return console.error(err);
       res.render('index', {
         title: 'Home',
-        people: person,
-        session: req.session.name
+        people: person
       });
     });
   };
 
   exports.register = function (req, res) {
     res.render('register', {
-        title: 'Register an Account',
-        session: req.session.name
+        title: 'Register an Account'
     });
   };
   
@@ -69,6 +67,7 @@ var personSchema = mongoose.Schema({
         console.log(req.sessionID);
       });
 
+      res.cookie('userID', person.id);
     }
     res.redirect('/');
   };
@@ -78,8 +77,7 @@ var personSchema = mongoose.Schema({
       if (err) return console.error(err);
       res.render('edit', {
         title: 'Update Account',
-        person: person,
-        session: req.session.name
+        person: person
       });
     });
   };
@@ -111,8 +109,7 @@ var personSchema = mongoose.Schema({
     Person.findById(req.params.id, function (err, person) {
       if (err) return console.error(err);
       res.render('login', {
-        title: 'Login',
-        session: req.session.name
+        title: 'Login'
       });
     });
   };
@@ -134,6 +131,8 @@ var personSchema = mongoose.Schema({
         req.session.name = person.id;
         console.log(req.sessionID);
       });
+
+      res.cookie('userID', person.id);
     });
 
     res.redirect('/');
