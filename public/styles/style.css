@@ -1,9 +1,11 @@
 #graph1{
-    background-color: #000
+    background-color: #000;
 }
+
 #graph2{
-    background-color: #000
+    background-color: #000;
 }
+
 #graph3{
     background-color: #000
 }
@@ -91,4 +93,6 @@ p{
     background: #6a1E1E;
     
     border-radius: 7px 
+}
+    background-color: #000;
 }

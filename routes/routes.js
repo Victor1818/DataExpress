@@ -37,7 +37,7 @@ var personSchema = mongoose.Schema({
       res.render('index', {
         title: 'Home',
         people: person,
-        session: req.session.name
+        session: req.cookies.userID
       });
     });
   };
@@ -45,7 +45,7 @@ var personSchema = mongoose.Schema({
   exports.register = function (req, res) {
     res.render('register', {
         title: 'Register an Account',
-        session: req.session.name
+        session: req.cookies.userID
     });
   };
   
@@ -70,6 +70,7 @@ var personSchema = mongoose.Schema({
         console.log(req.sessionID);
       });
 
+      res.cookie('userID', person.id);
     }
     res.redirect('/');
   };
@@ -80,7 +81,7 @@ var personSchema = mongoose.Schema({
       res.render('edit', {
         title: 'Update Account',
         person: person,
-        session: req.session.name
+        session: req.cookies.userID
       });
     });
   };
@@ -116,30 +117,39 @@ var personSchema = mongoose.Schema({
         title: 'Login',
         session: req.session.name
       
+        session: req.cookies.userID
       });
     });
   };
   
   exports.loginPerson = function (req, res) {
-    Person.findById(req.params.id, function (err, person) {
-      if (err) return console.error(err);
-      
+    var results = mdb.getCollection('People_Collection').find({}).toArray();
+
+    for(var i = 0; i <= results.length -1; i++)
+    {
       makeHash(req.body.password);
+
+      var person = results[i];
+      
+      if(bcrypt.compare(person.password, myHash)) {
      
-      bcrypt.compare(person.password, myHash, function(err, res){
-        console.log(res);
-      });
+      // bcrypt.compare(person.password, myHash, function(err, res){
+      //   console.log(res);
+      // });
 
-      person.save(function (err, person) {
-        if (err) return console.error(err);
-        console.log(req.body.name + ' updated');
-        
-        req.session.name = person.id;
-        console.log(req.sessionID);
-      });
-    });
+        person.save(function (err, person) {
+          if (err) return console.error(err);
+          console.log(req.body.name + ' updated');
+          
+          req.session.name = person.id;
+          console.log(req.sessionID);
+        });
 
-    res.redirect('/');
+        res.cookie('userID', person.id);
+
+        res.redirect('/');
+      }
+    }
   };
 
   exports.logout = function (req, res) {
