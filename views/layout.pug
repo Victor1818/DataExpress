@@ -5,7 +5,7 @@ html
     link(href='/styles/style.css', rel='stylesheet')
   body
     h3=title
-
+    div(id="date")
     nav
       a(href="/") Home
       br
@@ -16,5 +16,5 @@ html
       a(href="/edit/" + session) Edit Account
       br
       a(href="/logout/" + session) Logout
-
+      
     block content
