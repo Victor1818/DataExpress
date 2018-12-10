@@ -6,7 +6,7 @@ var canvas2 = document.getElementById('graph2');
 var ctx2 = canvas2.getContext('2d');
 var canvas3 = document.getElementById('graph3');
 var ctx3 = canvas3.getContext('2d');
-
+var percent = ;
 
 ctx1.strokeStyle= 'rgb(100, 200, 100)';
 ctx1.moveTo(0, 20);
@@ -54,15 +54,15 @@ ctx1.lineTo(320, 320);
 ctx1.stroke();
 
 ctx1.fillStyle='#0ff';
-ctx1.fillRect(10, 320, 80, -60);
+ctx1.fillRect(10, 320, 80, -(3 * percent));
 ctx1.stroke();
 
 ctx1.fillStyle="#0ff";
-ctx1.fillRect(120, 320, 80, -60);
+ctx1.fillRect(120, 320, 80, -(3 * percent));
 ctx1.stroke();
 
 ctx1.fillStyle="#0ff";
-ctx1.fillRect(230, 320, 80, -60);
+ctx1.fillRect(230, 320, 80, -(3 * percent));
 ctx1.stroke();
 
 
@@ -113,15 +113,15 @@ ctx2.lineTo(320, 320);
 ctx2.stroke();
 
 ctx2.fillStyle='#0ff';
-ctx2.fillRect(10, 320, 80, -60);
+ctx2.fillRect(10, 320, 80, -(3 * percent));
 ctx2.stroke();
 
 ctx2.fillStyle="#0ff";
-ctx2.fillRect(120, 320, 80, -60);
+ctx2.fillRect(120, 320, 80, -(3 * percent));
 ctx2.stroke();
 
 ctx2.fillStyle="#0ff";
-ctx2.fillRect(230, 320, 80, -60);
+ctx2.fillRect(230, 320, 80, -(3 * percent));
 ctx2.stroke();
 
 
@@ -172,13 +172,13 @@ ctx3.lineTo(320, 320);
 ctx3.stroke();
 
 ctx3.fillStyle='#0ff';
-ctx3.fillRect(10, 320, 80, -60);
+ctx3.fillRect(10, 320, 80, -(3 * percent));
 ctx3.stroke();
 
 ctx3.fillStyle="#0ff";
-ctx3.fillRect(120, 320, 80, -60);
+ctx3.fillRect(120, 320, 80, -(3 * percent));
 ctx3.stroke();
 
 ctx3.fillStyle="#0ff";
-ctx3.fillRect(230, 320, 80, -60);
+ctx3.fillRect(230, 320, 80, -(3 * percent));
 ctx3.stroke();
